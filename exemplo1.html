@@ -5,18 +5,50 @@
 	<title>Exemplo 1 - AngularJS</title>
 	<link rel="stylesheet" href="tema.css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-
+	<script src="exemplo.js"></script>
 </head>
-<body ng-app>
-	<h1>Exemplo de Expressões </h1>
+<body ng-app="primeira">
 	
-	<p>Local reservado para um típico parágrafo em html.</p>
+	<!--
 	
-	<p>{{10 + 5 * 2}}</p>
+	<div ng-controller="PrimeiroController as prim">
+		<h1>Exemplo de Expressões </h1>
+		
+		<p>Local reservado para um típico parágrafo em html.</p>
+		
+		<p>{{10 + 5 * 2}}</p>
+		
+		<input type="radio" name="visible" value="sim" ng-model="prim.data.visivel"> Sim <br>
+		<input type="radio" name="visible" value="nao" ng-model="prim.data.visivel"> Não <br>
+
+		<input type="text" ng-model="prim.data.name"> 
+		
+		<h2>Nome digitado: {{prim.data.name}}</h2>
+		
+		
+		<button ng-click="prim.data.previousName">Previous</button>
+		
+		<button ng-click="prim.data.nextName">Next</button>
+		
+		<p ng-show="prim.data.visivel === 'sim'">Algum texto</p>
+	</div>
 	
-	<input type="text" ng-model="data.name"> 
+	-->
+	<div ng-controller="StudentsController as students">
+		<h3>{{students.escolhido.name}}</h3>
+		<p ng-show="students.escolhido">Média: {{students.escolhido.nota}}</p>	
+		
+		<button ng-click="students.anterior()">Anterior</button>
+		<button ng-click="students.proximo()">Próximo</button>
+		
+		<hr>
+		
+		Nome: <input type="text" ng-model="students.nNome">
+		Nota: <input type="text" ng-model="students.nNota">
+		<button ng-click="students.criar(students.nNome, students.nNota)">Enviar</button>
 	
-	<h2>Nome digitado: {{data.name}}</h2>
+		
+	</div>
 
 </body>
 </html>
